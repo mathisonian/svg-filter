@@ -1,4 +1,24 @@
 {
   "blend": "feBlend",
-  "blur": "feGaussianBlur"
+  "blur": "feGaussianBlur",
+  "color": "feColorMatrix",
+  "color-matrix": "feColorMatrix",
+  "component-transfer": "feComponentTransfer",
+  "composite": "feComposite",
+  "convolve": "feConvolveMatrix",
+  "convolve-matrix": "feConvolveMatrix",
+  "diffuse": "feDiffuseLightning",
+  "diffuse-lighting": "feDiffuseLightning",
+  "displacement": "feDisplacementMap",
+  "displacement-map": "feDisplacementMap",
+  "flood": "feFlood",
+  "gaussian-blur": "feGaussianBlur",
+  "image": "feImage",
+  "merge": "feMerge",
+  "morphology": "feMorphology",
+  "offset": "feOffset",
+  "specular": "feSpecularLightning",
+  "specular-lighting": "feSpecularLightning",
+  "tile": "feTile",
+  "turbulence": "feTurbulence"
 }
