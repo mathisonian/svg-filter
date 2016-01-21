@@ -17,7 +17,7 @@ var makeRect = function (selector) {
             .attr('height', size)
             .attr('fill', 'blue');
 };
-</code></pre></div></div><div class="row section-header"><div class="column-12 centered"><h2>Blur</h2></div></div><div class="row"><div class="column-8 push-2"><div class="row"><div class="column-4 centered"><h3>Without Filter</h3><div class="left svg-example-1"></div></div><div class="column-4 centered"><h3>With Filter</h3><div class="right svg-example-1"></div></div></div><div class="row"><div class="column-12"><pre><code>// draw two blue squares with d3.
+</code></pre></div></div><div class="row section-header"><div class="column-12 centered"><h2>Blur</h2></div></div><div class="row"><div class="column-8 push-2"><div class="row"><div class="column-4 centered"><h4>Without Filter</h4><div class="left svg-example-1"></div></div><div class="column-4 centered"><h4>With Filter</h4><div class="right svg-example-1"></div></div></div><div class="row"><div class="column-12"><pre><code>// draw two blue squares with d3.
 // the makeRect function is defined above.
 var leftRect = makeRect('.left.svg-example-1')
 var rightRect = makeRect('.right.svg-example-1');
@@ -37,7 +37,7 @@ filter
 // right
 rightRect
     .attr('filter', filter);
-    </code></pre></div></div></div></div><div class="row section-header"><div class="column-12 centered"><h2>Noise</h2></div></div><div class="row"><div class="column-8 push-2"><div class="row"><div class="column-4 centered"><h3>Without Filter</h3><div class="left svg-example-2"></div></div><div class="column-4 centered"><h3>With Filter</h3><div class="right svg-example-2"></div></div></div><div class="row"><div class="column-12"><pre><code>leftRect = makeRect('.left.svg-example-2');
+    </code></pre></div></div></div></div><div class="row section-header"><div class="column-12 centered"><h2>Noise</h2></div></div><div class="row"><div class="column-8 push-2"><div class="row"><div class="column-4 centered"><h4>Without Filter</h4><div class="left svg-example-2"></div></div><div class="column-4 centered"><h4>With Filter</h4><div class="right svg-example-2"></div></div></div><div class="row"><div class="column-12"><pre><code>leftRect = makeRect('.left.svg-example-2');
 rightRect = makeRect('.right.svg-example-2');
 
 filter = new SvgFilter();
@@ -51,7 +51,7 @@ filter
       
 rightRect
     .attr('filter', filter);
-    </code></pre></div></div></div></div><div class="row section-header"><div class="column-12 centered"><h2>Image Fill</h2></div></div><div class="row"><div class="column-8 push-2"><div class="row"><div class="column-4 centered"><h3>Without Filter</h3><div class="left svg-example-3"></div></div><div class="column-4 centered"><h3>With Filter</h3><div class="right svg-example-3"></div></div></div><div class="row"><div class="column-12"><pre><code>leftRect = makeRect('.left.svg-example-3');
+    </code></pre></div></div></div></div><div class="row section-header"><div class="column-12 centered"><h2>Image Fill</h2></div></div><div class="row"><div class="column-8 push-2"><div class="row"><div class="column-4 centered"><h4>Without Filter</h4><div class="left svg-example-3"></div></div><div class="column-4 centered"><h4>With Filter</h4><div class="right svg-example-3"></div></div></div><div class="row"><div class="column-12"><pre><code>leftRect = makeRect('.left.svg-example-3');
 rightRect = makeRect('.right.svg-example-3');
 
 
@@ -109,7 +109,7 @@ rightRect.attr('filter', filter);
 
 
 
-</code></pre></div></div></div></div><div class="row section-header"><div class="column-12 centered"><h2>Composite filter components</h2></div></div><div class="row"><div class="column-8 push-2"><div class="row"><div class="column-4 centered"><h3>Without Filter</h3><div class="left svg-example-4"></div></div><div class="column-4 centered"><h3>With Filter</h3><div class="right svg-example-4"></div></div></div><div class="row"><div class="column-12"><pre><code>leftRect = makeRect('.left.svg-example-4');
+</code></pre></div></div></div></div><div class="row section-header"><div class="column-12 centered"><h2>Composite filter components</h2></div></div><div class="row"><div class="column-8 push-2"><div class="row"><div class="column-4 centered"><h4>Without Filter</h4><div class="left svg-example-4"></div></div><div class="column-4 centered"><h4>With Filter</h4><div class="right svg-example-4"></div></div></div><div class="row"><div class="column-12"><pre><code>leftRect = makeRect('.left.svg-example-4');
 rightRect = makeRect('.right.svg-example-4');
 
 filter = new SvgFilter();
