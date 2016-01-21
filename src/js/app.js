@@ -91,3 +91,32 @@ filter
 
 
 withFilter.attr('filter', filter);
+
+
+///// Example 4
+
+noFilter = makeRect('.no-filter.svg-example-4');
+withFilter = makeRect('.filter.svg-example-4');
+
+filter = new SvgFilter();
+
+var blurComponent = filter
+                      .append('blur')
+                          .attr('stdDeviation', 50);
+
+var noiseComponent = filter
+                      .append('turbulence')
+                          .attr('type', 'fractalNoise')
+                          .attr('baseFrequency', 0.1)
+                          .attr('numOctaves', 5)
+                          .attr('seed', 2);
+
+// composite the two filter components
+filter
+  .append('composite')
+      // this sets `in` and `in2`
+      // on 'compisite'
+      .in(blurComponent, noiseComponent);
+
+withFilter
+    .attr('filter', filter);

@@ -7,7 +7,7 @@ block content
       .column-8.push-2.details-container
         .row.section-header
           .column-12.centered
-            h1
+            h1.top-title
               | svg-filter
             h4
               a(href="https://github.com/mathisonian/svg-filter")
@@ -196,6 +196,53 @@ block content
                           .attr('operator', 'in')
                           // set the second input source,
                           .in2('SourceAlpha');
+
+                    withFilter
+                        .attr('filter', filter);
+
+
+
+        .row.section-header
+          .column-12.centered
+            h2
+              | Composite filter components
+              
+        
+        .row
+          .column-8.push-2
+            .row
+              .column-4.centered
+                h3
+                  | Without Filter
+                .no-filter.svg-example-4
+              .column-4.centered
+                  h3
+                    | With Filter
+                  .filter.svg-example-4
+            .row
+              .column-12
+                pre
+                  code.
+                    noFilter = makeRect('.no-filter.svg-example-4');
+                    withFilter = makeRect('.filter.svg-example-4');
+
+                    filter = new SvgFilter();
+                    
+                    var blurComponent = filter
+                                          .append('blur')
+                                              .attr('stdDeviation', 50);
+                                              
+                    var noiseComponent = filter
+                                          .append('turbulence')
+                                              .attr('type', 'fractalNoise')
+                                              .attr('baseFrequency', 0.1)
+                                              .attr('numOctaves', 5)
+                                              .attr('seed', 2);
+                    
+                    // composite the two filter components
+                    filter
+                      .append('composite')
+                          .in(blurComponent, noiseComponent);
 
                     withFilter
                         .attr('filter', filter);
