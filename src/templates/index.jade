@@ -42,7 +42,7 @@ block content
               | designed to look familiar to d3.js users.
             p
               | The following examples are re-implementations or slight modifications
-              | of examples from 
+              | of examples from  
               a(href="https://www.smashingmagazine.com/2015/05/why-the-svg-filter-is-awesome/")
                 | this article on smashing magazine by Dirk Weber
               | .
@@ -87,11 +87,11 @@ block content
               .column-4.centered
                 h3
                   | Without Filter
-                .no-filter.svg-example-1
+                .left.svg-example-1
               .column-4.centered
                   h3
                     | With Filter
-                  .filter.svg-example-1
+                  .right.svg-example-1
             
             .row
               .column-12
@@ -99,8 +99,8 @@ block content
                   code.
                     // draw two blue squares with d3.
                     // the makeRect function is defined above.
-                    var noFilter = makeRect('.no-filter.svg-example-1')
-                    var withFilter = makeRect('.filter.svg-example-1');
+                    var leftRect = makeRect('.left.svg-example-1')
+                    var rightRect = makeRect('.right.svg-example-1');
 
                     // Instantiate a new filter
                     var filter = new SvgFilter();
@@ -111,11 +111,11 @@ block content
                       .append('blur')
                           .attr('stdDeviation', 50);
 
-                    // withFilter is just a d3.selection
+                    // rightRect is just a d3.selection
                     // of the rectangle. this adds
                     // the filter to the rectangle on the
                     // right
-                    withFilter
+                    rightRect
                         .attr('filter', filter);
 
         .row.section-header
@@ -130,17 +130,17 @@ block content
               .column-4.centered
                 h3
                   | Without Filter
-                .no-filter.svg-example-2
+                .left.svg-example-2
               .column-4.centered
-                  h3
-                    | With Filter
-                  .filter.svg-example-2
+                h3
+                  | With Filter
+                .right.svg-example-2
             .row
               .column-12
                 pre
                   code.
-                    noFilter = makeRect('.no-filter.svg-example-2');
-                    withFilter = makeRect('.filter.svg-example-2');
+                    leftRect = makeRect('.left.svg-example-2');
+                    rightRect = makeRect('.right.svg-example-2');
 
                     filter = new SvgFilter();
 
@@ -151,7 +151,7 @@ block content
                           .attr('numOctaves', 5)
                           .attr('seed', 2);
                           
-                    withFilter
+                    rightRect
                         .attr('filter', filter);
 
         .row.section-header
@@ -166,17 +166,17 @@ block content
               .column-4.centered
                 h3
                   | Without Filter
-                .no-filter.svg-example-3
+                .left.svg-example-3
               .column-4.centered
                   h3
                     | With Filter
-                  .filter.svg-example-3
+                  .right.svg-example-3
             .row
               .column-12
                 pre
                   code.
-                    noFilter = makeRect('.no-filter.svg-example-3');
-                    withFilter = makeRect('.filter.svg-example-3');
+                    leftRect = makeRect('.left.svg-example-3');
+                    rightRect = makeRect('.right.svg-example-3');
 
 
                     // Create an SVG pattern to
@@ -229,7 +229,7 @@ block content
                           .in2('SourceGraphic');
 
 
-                    withFilter.attr('filter', filter);
+                    rightRect.attr('filter', filter);
 
 
 
@@ -246,17 +246,17 @@ block content
               .column-4.centered
                 h3
                   | Without Filter
-                .no-filter.svg-example-4
+                .left.svg-example-4
               .column-4.centered
                   h3
                     | With Filter
-                  .filter.svg-example-4
+                  .right.svg-example-4
             .row
               .column-12
                 pre
                   code.
-                    noFilter = makeRect('.no-filter.svg-example-4');
-                    withFilter = makeRect('.filter.svg-example-4');
+                    leftRect = makeRect('.left.svg-example-4');
+                    rightRect = makeRect('.right.svg-example-4');
 
                     filter = new SvgFilter();
                     
@@ -276,5 +276,5 @@ block content
                       .append('composite')
                           .in(blurComponent, noiseComponent);
 
-                    withFilter
+                    rightRect
                         .attr('filter', filter);

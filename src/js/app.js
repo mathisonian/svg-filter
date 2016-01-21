@@ -26,8 +26,8 @@ var makeRect = function (selector) {
 
 //// Example 1
 
-var noFilter = makeRect('.no-filter.svg-example-1')
-var withFilter = makeRect('.filter.svg-example-1');
+var leftRect = makeRect('.left.svg-example-1')
+var rightRect = makeRect('.right.svg-example-1');
 
 var filter = new SvgFilter();
 
@@ -35,14 +35,14 @@ filter
   .append('blur')
       .attr('stdDeviation', 50);
 
-withFilter.attr('filter', filter);
+rightRect.attr('filter', filter);
 
 
 
 //// Example 2
 
-noFilter = makeRect('.no-filter.svg-example-2');
-withFilter = makeRect('.filter.svg-example-2');
+leftRect = makeRect('.left.svg-example-2');
+rightRect = makeRect('.right.svg-example-2');
 
 
 
@@ -55,20 +55,21 @@ filter
       .attr('numOctaves', 5)
       .attr('seed', 2);
 
-withFilter.attr('filter', filter);
+rightRect.attr('filter', filter);
 
 
 
 //// Example 3
 
-noFilter = makeRect('.no-filter.svg-example-3');
-withFilter = makeRect('.filter.svg-example-3');
+leftRect = makeRect('.left.svg-example-3');
+rightRect = makeRect('.right.svg-example-3');
 
 
-var patternSVG = d3.select(document.createElement('div'))
+var patternSVG = d3.select("body")
                   .append("svg")
-                      .attr('width', 100)
-                      .attr('height', 200);
+                  .remove()
+                  .attr('width', 100)
+                  .attr('height', 200);
 
 var pattern = patternSVG
   .append('defs')
@@ -94,11 +95,18 @@ pattern
   .append('polygon')
   .attr('points', '1.762,0 0,0 10,10 10,8.238 ');
 
+
+
+console.log(patternSVG.node().outerHTML);
+
+
+
 filter = new SvgFilter();
+
 
 filter
   .append('image')
-      .attr('xlink:href', 'data:image/svg+xml;charset=utf-8,' + encodeURI(patternSVG.node().outerHTML) + )
+      .attr('xlink:href', 'data:image/svg+xml;charset=utf-8,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20width%3D%22100px%22%20height%3D%22200px%22%20%20%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3Cpattern%20id%3D%22pattern%22%20patternUnits%3D%22userSpaceOnUse%22%20width%3D%2210%22%20height%3D%2210%22%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M0%2C8.239V10h1.761L0%2C8.239z%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M5%2C0l5%2C5l0%2C0V3.238L6.762%2C0H5z%22%2F%3E%0A%20%20%20%20%20%20%3Cpolygon%20points%3D%220%2C3.239%200%2C5%205%2C10%206.761%2C10%20%22%2F%3E%0A%20%20%20%20%20%20%3Cpolygon%20points%3D%221.762%2C0%200%2C0%2010%2C10%2010%2C8.238%20%22%2F%3E%0A%20%20%20%20%3C%2Fpattern%3E%0A%20%20%3C%2Fdefs%3E%0A%20%20%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url%28%23pattern%29%22%20%2F%3E%0A%3C%2Fsvg%3E')
       .attr('x', 0)
       .attr('y', 0)
       .attr('width', 100)
@@ -109,13 +117,13 @@ filter
       .in2('SourceGraphic');
 
 
-withFilter.attr('filter', filter);
+rightRect.attr('filter', filter);
 
 
 ///// Example 4
 
-noFilter = makeRect('.no-filter.svg-example-4');
-withFilter = makeRect('.filter.svg-example-4');
+leftRect = makeRect('.left.svg-example-4');
+rightRect = makeRect('.right.svg-example-4');
 
 filter = new SvgFilter();
 
@@ -137,5 +145,5 @@ filter
       // on 'compisite'
       .in(blurComponent, noiseComponent);
 
-withFilter
+rightRect
     .attr('filter', filter);
