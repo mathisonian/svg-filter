@@ -177,28 +177,60 @@ block content
                     noFilter = makeRect('.no-filter.svg-example-3');
                     withFilter = makeRect('.filter.svg-example-3');
 
+
+                    // Create an SVG pattern to
+                    // feed into a 'tile' filter
+                    var patternSVG = d3.select("body")
+                                      .append("svg")
+                                      .remove()
+                                      .attr('width', 100)
+                                      .attr('height', 200);
+
+                    var pattern = patternSVG
+                      .append('defs')
+                        .append('pattern')
+                            .attr('id', 'pattern')
+                            .attr('patternUnits', 'userSpaceOnUse')
+                            .attr('width', 10)
+                            .attr('height', 10);
+
+                    pattern
+                      .append('path')
+                      .attr('d', 'M0,8.239V10h1.761L0,8.239z');
+
+                    pattern
+                      .append('path')
+                      .attr('d', 'M5,0l5,5l0,0V3.238L6.762,0H5z');
+
+                    pattern
+                      .append('polygon')
+                      .attr('points', '0,3.239 0,5 5,10 6.761,10 ');
+
+                    pattern
+                      .append('polygon')
+                      .attr('points', '1.762,0 0,0 10,10 10,8.238 ');
+
                     filter = new SvgFilter();
 
+                    
                     filter
+                      // create the image filter component with the SVG as input
                       .append('image')
-                          .attr('xlink:href', 'data:image/svg+xml;charset=utf-8,...encoded-svg-data...')
+                          .attr('xlink:href', 'data:image/svg+xml;charset=utf-8,' + encodeURI(patternSVG.node().outerHTML) + )
                           .attr('x', 0)
                           .attr('y', 0)
                           .attr('width', 100)
                           .attr('height', 200)
-                      // calling append here
-                      // automatically connects the output of 'image'
-                      // to the input of 'tile'
+                      // send the image component output to a tile component
                       .append('tile')
-                      // again, connects the output of 'tile'
-                      // to the input of 'composite'
+                      // sent the tile to composite
                       .append('composite')
                           .attr('operator', 'xor')
-                          // set the second input source,
                           .in2('SourceGraphic');
 
-                    withFilter
-                        .attr('filter', filter);
+
+                    withFilter.attr('filter', filter);
+
 
 
 
