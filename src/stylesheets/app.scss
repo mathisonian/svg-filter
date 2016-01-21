@@ -22,8 +22,20 @@ $blue: #68a1e5;
 $lightGray: #626c7c;
 $darkGray: #424b58;
 
-a {
-    color: $blue;
+
+.filter, .no-filter {
+  // margin-bottom: 30px;
+}
+.row {
+  margin-top: 30px;
+}
+
+.section-header {
+  margin-top: 60px;
+}
+
+a, a:visited {
+    color: $purple;
 }
 body, p {
     font-family: 'AvenirNext', sans-serif;
@@ -49,31 +61,24 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'AvenirNext-UltraLight', sans-serif;
-    font-weight: bold;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 800;
     color: $darkGray;
 
     a {
-        color: $darkGray;        
+        color: $darkGray;
     }
 }
 
-h2 {
-    padding-top: 40px;
-    padding-bottom: 20px;
-}
-
-h4 {
-    padding-top: 20px;
-    padding-bottom: 10px;
-}
-h5 {
-    padding-top: 10px;
-}
 
 p {
     color: #222;
+    font-family: 'Work Sans', sans-serif;
 }
+
+// .row {
+//   margin-top:
+// }
 
 a {
     text-decoration: none;
@@ -117,7 +122,7 @@ ul, li {
 }
 
 .caption {
-    font-family: "AvenirNext-UltraLight";
+    font-family: "Work Sans";
     font-size: 18px;
     line-height: 1.2em;
     padding-bottom: 20px;
@@ -132,7 +137,7 @@ ul, li {
 .method-header {
     font-size: 22px;
     line-height: 1.2em;
-    font-family: "AvenirNext-UltraLight";
+    font-family: "Work Sans";
     margin-bottom: 3px;
     margin-top: 20px;
 }
@@ -144,7 +149,7 @@ ul, li {
 }
 
 .method-item {
-    font-family: "AvenirNext" sans-serif;
+    font-family: "Work Sans" sans-serif;
     cursor: pointer;
     font-size: 15px;
     border: solid 1px $lightGray;
@@ -200,7 +205,7 @@ ul, li {
         background-color: rgba(0, 0, 0, 0.64);
         color: white;
         text-transform: uppercase;
-        
+
         position: absolute;
 
     }
@@ -297,7 +302,7 @@ section.hero {
 
 
         &.featured-image {
-            background-image: url('/images/featured-graphic.png');    
+            background-image: url('/images/featured-graphic.png');
         }
         background-position: center center;
         background-repeat: no-repeat;
@@ -343,7 +348,7 @@ section.examples {
     padding-top: 60px;
     h1 {
         text-align: center;
-        
+
     }
 
     h4 {
@@ -506,19 +511,19 @@ ul.styled {
     margin-top: 15px;
     margin-bottom: 20px;
 
-    nav ul { 
-        margin: 0; padding: 0; 
-        li { 
-            display: inline-block; 
+    nav ul {
+        margin: 0; padding: 0;
+        li {
+            display: inline-block;
             zoom:1; *display:inline;
             cursor: pointer;
 
-            a { 
-                font-size: 14px; 
-                line-height: 2em; 
-                display: block; 
-                padding: 0 10px; 
-                outline: none; 
+            a {
+                font-size: 14px;
+                line-height: 2em;
+                display: block;
+                padding: 0 10px;
+                outline: none;
                 color: $darkGray;
 
                 &:visited {
@@ -527,10 +532,10 @@ ul.styled {
             }
 
             &.is-active {
-                background-color: #f6f7fa;; 
-                padding-top: 6px; 
-                position: relative; 
-                top: 1px; 
+                background-color: #f6f7fa;;
+                padding-top: 6px;
+                position: relative;
+                top: 1px;
                 border-top: solid 2px $purple;
 
                 a {
@@ -539,8 +544,8 @@ ul.styled {
             }
         }
     }
-    
-    .tab-panel { 
+
+    .tab-panel {
 
         background-color: #f6f7fa;
         padding: 10px;
@@ -555,7 +560,7 @@ ul.styled {
     }
 }
 
-    
+
 .line-plot {
 
     .plot {

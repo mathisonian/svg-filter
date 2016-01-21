@@ -1,1 +1,67 @@
-<!DOCTYPE html><html lang="en"><head><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta http-equiv="X-UA-Compatible" content="IE=10; IE=9; IE=8; IE=7; IE=EDGE"><meta charset="UTF-8"><link href="/images/favicon.ico" rel="shortcut icon" type="image/x-icon"><title>svg-filter</title><meta property="og:title" content="svg-filter"><link rel="stylesheet" href="/css/app.css"></head></html><body><div class="documentation-container"><div class="row"><div class="column-12"><div id="svg-example-1"></div></div></div></div><script src="/js/app.js"></script></body>
+<!DOCTYPE html><html lang="en"><head><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta http-equiv="X-UA-Compatible" content="IE=10; IE=9; IE=8; IE=7; IE=EDGE"><meta charset="UTF-8"><link href="/images/favicon.ico" rel="shortcut icon" type="image/x-icon"><title>svg-filter</title><meta property="og:title" content="svg-filter"><link rel="stylesheet" href="/css/app.css"></head></html><body><div class="documentation-container section-header"><div class="row section-header"><div class="column-8 push-2 details-container"><div class="row section-header"><div class="column-12 centered"><h1>svg-filter</h1><h4><a href="https://github.com/mathisonian/svg-filter">View on Github</a></h4></div></div><div class="row section-header"><div class="column-12 centered section-header"><h2>Installation</h2></div></div><div class="row"><div class="column-8 push-2"><pre><code>$ npm install svg-filter
+</code></pre></div></div><div class="row section-header"><div class="column-12 centered"><h2>Introduction</h2></div></div><div class="row"><div class="column-8 push-2">       <p>This library makes it easy to work with SVG filters. The API is
+designed to look familiar to d3.js users.</p><p>The following examples re-implement examples from <a href="https://www.smashingmagazine.com/2015/05/why-the-svg-filter-is-awesome/">this article on smashing magazine by Dirk Weber</a>.</p><p>This library exposes all filter types available in the svg spec. 
+For more detailed documentation on that see <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/filter">https://developer.mozilla.org/en-US/docs/Web/SVG/Element/filter</a>.</p><pre><code>var d3 = require('d3');
+var SvgFilter = require('svg-filter');
+var size = 200;
+
+var makeRect = function (selector) {
+  return d3.select(selector)
+      .append('svg')
+          .attr('width', size)
+          .attr('height', size)
+      .append('rect')
+            .attr('width', size)
+            .attr('height', size)
+            .attr('fill', 'blue');
+};
+</code></pre></div></div><div class="row section-header"><div class="column-12 centered"><h2>Blur</h2></div></div><div class="row"><div class="column-8 push-2"><div class="row"><div class="column-4 centered"><h3>Without Filter</h3><div class="no-filter svg-example-1"></div></div><div class="column-4 centered"><h3>With Filter</h3><div class="filter svg-example-1"></div></div></div><div class="row"><div class="column-12"><pre><code>var noFilter = makeRect('.no-filter.svg-example-1')
+var withFilter = makeRect('.filter.svg-example-1');
+
+var filter = new SvgFilter();
+
+filter
+  .append('blur')
+      .attr('stdDeviation', 50);
+      
+withFilter.attr('filter', filter);
+</code></pre></div></div></div></div><div class="row section-header"><div class="column-12 centered"><h2>Noise</h2></div></div><div class="row"><div class="column-8 push-2"><div class="row"><div class="column-4 centered"><h3>Without Filter</h3><div class="no-filter svg-example-2"></div></div><div class="column-4 centered"><h3>With Filter</h3><div class="filter svg-example-2"></div></div></div><div class="row"><div class="column-12"><pre><code>noFilter = makeRect('.no-filter.svg-example-2');
+withFilter = makeRect('.filter.svg-example-2');
+
+filter = new SvgFilter();
+
+filter
+  .append('turbulence')
+      .attr('type', 'fractalNoise')
+      .attr('baseFrequency', 0.1)
+      .attr('numOctaves', 5)
+      .attr('seed', 2);
+      
+withFilter.attr('filter', filter);
+
+
+</code></pre></div></div></div></div><div class="row section-header"><div class="column-12 centered"><h2>Image Fill</h2></div></div><div class="row"><div class="column-8 push-2"><div class="row"><div class="column-4 centered"><h3>Without Filter</h3><div class="no-filter svg-example-3"></div></div><div class="column-4 centered"><h3>With Filter</h3><div class="filter svg-example-3"></div></div></div><div class="row"><div class="column-12"><pre><code>noFilter = makeRect('.no-filter.svg-example-3');
+withFilter = makeRect('.filter.svg-example-3');
+
+filter = new SvgFilter();
+
+filter
+  .append('image')
+      .attr('xlink:href', 'data:image/svg+xml;charset=utf-8,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20width%3D%22100px%22%20height%3D%22200px%22%20%20%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3Cpattern%20id%3D%22pattern%22%20patternUnits%3D%22userSpaceOnUse%22%20width%3D%2210%22%20height%3D%2210%22%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M0%2C8.239V10h1.761L0%2C8.239z%22%2F%3E%0A%20%20%20%20%20%20%3Cpath%20d%3D%22M5%2C0l5%2C5l0%2C0V3.238L6.762%2C0H5z%22%2F%3E%0A%20%20%20%20%20%20%3Cpolygon%20points%3D%220%2C3.239%200%2C5%205%2C10%206.761%2C10%20%22%2F%3E%0A%20%20%20%20%20%20%3Cpolygon%20points%3D%221.762%2C0%200%2C0%2010%2C10%2010%2C8.238%20%22%2F%3E%0A%20%20%20%20%3C%2Fpattern%3E%0A%20%20%3C%2Fdefs%3E%0A%20%20%3Crect%20x%3D%220%22%20y%3D%220%22%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22url%28%23pattern%29%22%20%2F%3E%0A%3C%2Fsvg%3E')
+      .attr('x', 0)
+      .attr('y', 0)
+      .attr('width', 100)
+      .attr('height', 200)
+  // calling append here
+  // automatically connects the output of 'image'
+  // to the input of 'tile'
+  .append('tile')
+  // again, connects the output of 'tile'
+  // to the input of 'composite'
+  .append('composite')
+      .attr('operator', 'in')
+      // set the second input source,
+      .in2('SourceAlpha');
+      
+      
+withFilter.attr('filter', filter);</code></pre></div></div></div></div></div></div></div><script src="/js/app.js"></script></body>

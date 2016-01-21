@@ -55,12 +55,6 @@ gulp.task('css', function() {
 });
 
 
-gulp.task('fonts', function() {
-    return gulp
-            .src('src/fonts/**/*.{otf,svg,ttf,woff,eot}')
-            .pipe( gulp.dest('./fonts/') )
-            .pipe( livereload( server ));
-});
 
 gulp.task('images', function() {
     return gulp
@@ -125,6 +119,6 @@ gulp.task('watch', function () {
 
 
 gulp.task('js', ['browserify']);
-gulp.task('static', ['js', 'css', 'fonts', 'images']);
+gulp.task('static', ['js', 'css', 'images']);
 gulp.task('default', ['templates','express','watch']);
 gulp.task('build', ['templates']);

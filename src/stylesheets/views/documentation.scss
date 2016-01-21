@@ -4,7 +4,6 @@
 
     a {
         outline: none;
-        font-size: 15px;
         color: darken($purple, 5%);
 
     }
@@ -90,7 +89,7 @@
 
 
 
-@media screen and (max-width: 800px) { 
+@media screen and (max-width: 800px) {
     .details-container {
         float: none; margin-left: auto !important; margin-right: auto;
     }

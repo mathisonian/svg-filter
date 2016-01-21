@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css?family=Work+Sans:400,800);
 /*
 * Skeleton V1.2
 * Copyright 2011, Dave Gamache
@@ -657,24 +658,20 @@ img {
   .hidden-mobile, .visible-tablet, .visible-desktop {
     display: none !important; } }
 
-@font-face {
-  font-family: "AvenirNext-UltraLight";
-  src: url("/fonts/17c55b27-e9ab-43cd-b948-d49f97480d68.eot?#iefix");
-  src: url("/fonts/17c55b27-e9ab-43cd-b948-d49f97480d68.eot?#iefix") format("eot"), url("/fonts/fa19948e-5e38-4909-b31e-41acd170d6f2.woff") format("woff"), url("/fonts/6de0ce4d-9278-467b-b96f-c1f5f0a4c375.ttf") format("truetype"), url("/fonts/9fd4ea0c-b19a-4b21-9fdf-37045707dd78.svg#9fd4ea0c-b19a-4b21-9fdf-37045707dd78") format("svg"); }
-
-@font-face {
-  font-family: "AvenirNext";
-  src: url("/fonts/e9167238-3b3f-4813-a04a-a384394eed42.eot?#iefix");
-  src: url("/fonts/e9167238-3b3f-4813-a04a-a384394eed42.eot?#iefix") format("eot"), url("/fonts/1e9892c0-6927-4412-9874-1b82801ba47a.woff") format("woff"), url("/fonts/46cf1067-688d-4aab-b0f7-bd942af6efd8.ttf") format("truetype"), url("/fonts/52a192b1-bea5-4b48-879f-107f009b666f.svg#52a192b1-bea5-4b48-879f-107f009b666f") format("svg"); }
-
 .centered {
   text-align: center; }
 
 .mobile {
   display: none; }
 
-a {
-  color: #68a1e5; }
+.row {
+  margin-top: 30px; }
+
+.section-header {
+  margin-top: 60px; }
+
+a, a:visited {
+  color: #9175f0; }
 
 body, p {
   font-family: 'AvenirNext', sans-serif;
@@ -691,25 +688,15 @@ a {
   transition: 0.075s; }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'AvenirNext-UltraLight', sans-serif;
-  font-weight: bold;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 800;
   color: #424b58; }
   h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
     color: #424b58; }
 
-h2 {
-  padding-top: 40px;
-  padding-bottom: 20px; }
-
-h4 {
-  padding-top: 20px;
-  padding-bottom: 10px; }
-
-h5 {
-  padding-top: 10px; }
-
 p {
-  color: #222; }
+  color: #222;
+  font-family: 'Work Sans', sans-serif; }
 
 a {
   text-decoration: none;
@@ -740,7 +727,7 @@ ul, li {
     margin-top: 15px; }
 
 .caption {
-  font-family: "AvenirNext-UltraLight";
+  font-family: "Work Sans";
   font-size: 18px;
   line-height: 1.2em;
   padding-bottom: 20px;
@@ -753,7 +740,7 @@ ul, li {
 .method-header {
   font-size: 22px;
   line-height: 1.2em;
-  font-family: "AvenirNext-UltraLight";
+  font-family: "Work Sans";
   margin-bottom: 3px;
   margin-top: 20px; }
 
@@ -763,7 +750,7 @@ ul, li {
   margin-bottom: 20px; }
 
 .method-item {
-  font-family: "AvenirNext" sans-serif;
+  font-family: "Work Sans" sans-serif;
   cursor: pointer;
   font-size: 15px;
   border: solid 1px #626c7c;
@@ -1091,7 +1078,6 @@ input[type=submit], button {
 
 .documentation-container a {
   outline: none;
-  font-size: 15px;
   color: #7d5eee; }
 .documentation-container a:visited {
   color: #7d5eee; }
