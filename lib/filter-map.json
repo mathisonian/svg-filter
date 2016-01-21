@@ -1,0 +1,4 @@
+{
+  "blend": "feBlend",
+  "blur": "feGaussianBlur"
+}

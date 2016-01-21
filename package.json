@@ -1,0 +1,35 @@
+{
+  "name": "svg-filter",
+  "version": "1.0.0",
+  "description": "Tool for working with svg filters",
+  "main": "index.js",
+  "scripts": {
+    "test": "semistandard && mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mathisonian/svg-filter.git"
+  },
+  "keywords": [
+    "svg",
+    "filter",
+    "d3",
+    "svg-filter",
+    "svg-filters",
+    "filters"
+  ],
+  "author": "Matthew Coneln",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mathisonian/svg-filter/issues"
+  },
+  "homepage": "https://github.com/mathisonian/svg-filter#readme",
+  "devDependencies": {
+    "expect.js": "^0.3.1",
+    "mocha": "^2.3.4",
+    "semistandard": "^7.0.5"
+  },
+  "dependencies": {
+    "d3-selection": "^0.6.2"
+  }
+}
