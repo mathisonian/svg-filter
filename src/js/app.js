@@ -65,11 +65,10 @@ noFilter = makeRect('.no-filter.svg-example-3');
 withFilter = makeRect('.filter.svg-example-3');
 
 
-var patternSVG = d3.select("body")
+var patternSVG = d3.select(document.createElement('div'))
                   .append("svg")
-                  .remove()
-                  .attr('width', 100)
-                  .attr('height', 200);
+                      .attr('width', 100)
+                      .attr('height', 200);
 
 var pattern = patternSVG
   .append('defs')
