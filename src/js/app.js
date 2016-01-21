@@ -86,8 +86,8 @@ filter
       .attr('height', 200)
   .append('tile')
   .append('composite')
-      .attr('operator', 'in')
-      .in2('SourceAlpha');
+      .attr('operator', 'xor')
+      .in2('SourceGraphic');
 
 
 withFilter.attr('filter', filter);
