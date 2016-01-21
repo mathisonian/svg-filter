@@ -65,10 +65,10 @@ gulp.task('images', function() {
 
 gulp.task('jade', function() {
 
-    var host = '/' + projectName + '/';
+    var host = './' + projectName + '/';
 
     if(!PRODUCTION_MODE) {
-        host = '/';
+        host = './';
     }
 
     return gulp
