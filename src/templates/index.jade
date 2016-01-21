@@ -96,18 +96,24 @@ block content
               .column-12
                 pre
                   code.
+                    // draw two blue squares with d3.
+                    // the makeRect function is defined above.
                     var noFilter = makeRect('.no-filter.svg-example-1')
                     var withFilter = makeRect('.filter.svg-example-1');
 
+                    // Instantiate a new filter
                     var filter = new SvgFilter();
 
+                    // Add a single blur element to the filter
+                    // and set a parameter on the blur.
                     filter
                       .append('blur')
                           .attr('stdDeviation', 50);
 
-                    
                     // withFilter is just a d3.selection
-                    // of the rectangle
+                    // of the rectangle. this adds
+                    // the filter to the rectangle on the
+                    // right
                     withFilter
                         .attr('filter', filter);
 
@@ -146,8 +152,6 @@ block content
                           
                     withFilter
                         .attr('filter', filter);
-
-
 
         .row.section-header
           .column-12.centered
@@ -192,7 +196,6 @@ block content
                           .attr('operator', 'in')
                           // set the second input source,
                           .in2('SourceAlpha');
-
 
                     withFilter
                         .attr('filter', filter);

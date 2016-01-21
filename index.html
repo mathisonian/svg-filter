@@ -16,18 +16,24 @@ var makeRect = function (selector) {
             .attr('height', size)
             .attr('fill', 'blue');
 };
-</code></pre></div></div><div class="row section-header"><div class="column-12 centered"><h2>Blur</h2></div></div><div class="row"><div class="column-8 push-2"><div class="row"><div class="column-4 centered"><h3>Without Filter</h3><div class="no-filter svg-example-1"></div></div><div class="column-4 centered"><h3>With Filter</h3><div class="filter svg-example-1"></div></div></div><div class="row"><div class="column-12"><pre><code>var noFilter = makeRect('.no-filter.svg-example-1')
+</code></pre></div></div><div class="row section-header"><div class="column-12 centered"><h2>Blur</h2></div></div><div class="row"><div class="column-8 push-2"><div class="row"><div class="column-4 centered"><h3>Without Filter</h3><div class="no-filter svg-example-1"></div></div><div class="column-4 centered"><h3>With Filter</h3><div class="filter svg-example-1"></div></div></div><div class="row"><div class="column-12"><pre><code>// draw two blue squares with d3.
+// the makeRect function is defined above.
+var noFilter = makeRect('.no-filter.svg-example-1')
 var withFilter = makeRect('.filter.svg-example-1');
 
+// Instantiate a new filter
 var filter = new SvgFilter();
 
+// Add a single blur element to the filter
+// and set a parameter on the blur.
 filter
   .append('blur')
       .attr('stdDeviation', 50);
       
-      
 // withFilter is just a d3.selection
-// of the rectangle
+// of the rectangle. this adds
+// the filter to the rectangle on the
+// right
 withFilter
     .attr('filter', filter);
     </code></pre></div></div></div></div><div class="row section-header"><div class="column-12 centered"><h2>Noise</h2></div></div><div class="row"><div class="column-8 push-2"><div class="row"><div class="column-4 centered"><h3>Without Filter</h3><div class="no-filter svg-example-2"></div></div><div class="column-4 centered"><h3>With Filter</h3><div class="filter svg-example-2"></div></div></div><div class="row"><div class="column-12"><pre><code>noFilter = makeRect('.no-filter.svg-example-2');
@@ -44,8 +50,6 @@ filter
       
 withFilter
     .attr('filter', filter);
-    
-    
     </code></pre></div></div></div></div><div class="row section-header"><div class="column-12 centered"><h2>Image Fill</h2></div></div><div class="row"><div class="column-8 push-2"><div class="row"><div class="column-4 centered"><h3>Without Filter</h3><div class="no-filter svg-example-3"></div></div><div class="column-4 centered"><h3>With Filter</h3><div class="filter svg-example-3"></div></div></div><div class="row"><div class="column-12"><pre><code>noFilter = makeRect('.no-filter.svg-example-3');
 withFilter = makeRect('.filter.svg-example-3');
 
@@ -68,7 +72,6 @@ filter
       .attr('operator', 'in')
       // set the second input source,
       .in2('SourceAlpha');
-      
       
 withFilter
     .attr('filter', filter);</code></pre></div></div></div></div></div></div></div><script src="./js/app.js"></script></body>
