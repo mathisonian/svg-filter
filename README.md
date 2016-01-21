@@ -1,2 +1,2 @@
 # svg-filter
-Tool for working with svg filters
+[WIP] Tool for working with svg filters
