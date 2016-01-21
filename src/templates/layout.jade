@@ -1,0 +1,25 @@
+doctype html
+html(lang="en")
+    head
+        meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+        meta(http-equiv="X-UA-Compatible" content="IE=10; IE=9; IE=8; IE=7; IE=EDGE")
+        meta(charset="UTF-8")
+        link(href="/images/favicon.ico", rel="shortcut icon", type="image/x-icon")
+
+        title
+            | svg-filter
+        block meta
+            meta(property="og:title", content="svg-filter")
+            //- meta(property="og:url", content="http://lightning-viz.org")
+            //- meta(property="og:image", content="http://lightning-viz.org/images/gallery.png")
+            //- meta(property="og:description", content="Lightning is a data-visualization server providing API-based access to reproducible, web-based, interactive visualizations. It includes a core set of visualization types, but is built for extendability and customization.")
+        block css
+            link(rel='stylesheet', href='#{STATIC_URL}css/app.css')
+
+body
+    block header
+    block content
+
+    block scripts
+        //- script(src='//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js')
+        script(src='#{STATIC_URL}js/app.js')
