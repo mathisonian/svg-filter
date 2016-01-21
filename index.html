@@ -25,8 +25,9 @@ filter
   .append('blur')
       .attr('stdDeviation', 50);
       
-withFilter.attr('filter', filter);
-</code></pre></div></div></div></div><div class="row section-header"><div class="column-12 centered"><h2>Noise</h2></div></div><div class="row"><div class="column-8 push-2"><div class="row"><div class="column-4 centered"><h3>Without Filter</h3><div class="no-filter svg-example-2"></div></div><div class="column-4 centered"><h3>With Filter</h3><div class="filter svg-example-2"></div></div></div><div class="row"><div class="column-12"><pre><code>noFilter = makeRect('.no-filter.svg-example-2');
+withFilter
+    .attr('filter', filter);
+    </code></pre></div></div></div></div><div class="row section-header"><div class="column-12 centered"><h2>Noise</h2></div></div><div class="row"><div class="column-8 push-2"><div class="row"><div class="column-4 centered"><h3>Without Filter</h3><div class="no-filter svg-example-2"></div></div><div class="column-4 centered"><h3>With Filter</h3><div class="filter svg-example-2"></div></div></div><div class="row"><div class="column-12"><pre><code>noFilter = makeRect('.no-filter.svg-example-2');
 withFilter = makeRect('.filter.svg-example-2');
 
 filter = new SvgFilter();
@@ -38,10 +39,11 @@ filter
       .attr('numOctaves', 5)
       .attr('seed', 2);
       
-withFilter.attr('filter', filter);
-
-
-</code></pre></div></div></div></div><div class="row section-header"><div class="column-12 centered"><h2>Image Fill</h2></div></div><div class="row"><div class="column-8 push-2"><div class="row"><div class="column-4 centered"><h3>Without Filter</h3><div class="no-filter svg-example-3"></div></div><div class="column-4 centered"><h3>With Filter</h3><div class="filter svg-example-3"></div></div></div><div class="row"><div class="column-12"><pre><code>noFilter = makeRect('.no-filter.svg-example-3');
+withFilter
+    .attr('filter', filter);
+    
+    
+    </code></pre></div></div></div></div><div class="row section-header"><div class="column-12 centered"><h2>Image Fill</h2></div></div><div class="row"><div class="column-8 push-2"><div class="row"><div class="column-4 centered"><h3>Without Filter</h3><div class="no-filter svg-example-3"></div></div><div class="column-4 centered"><h3>With Filter</h3><div class="filter svg-example-3"></div></div></div><div class="row"><div class="column-12"><pre><code>noFilter = makeRect('.no-filter.svg-example-3');
 withFilter = makeRect('.filter.svg-example-3');
 
 filter = new SvgFilter();
@@ -65,4 +67,5 @@ filter
       .in2('SourceAlpha');
       
       
-withFilter.attr('filter', filter);</code></pre></div></div></div></div></div></div></div><script src="./js/app.js"></script></body>
+withFilter
+    .attr('filter', filter);</code></pre></div></div></div></div></div></div></div><script src="./js/app.js"></script></body>
