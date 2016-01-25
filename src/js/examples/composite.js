@@ -16,15 +16,16 @@ var noiseComponent = filter
                           .attr('type', 'turbulence')
                           .attr('baseFrequency', 0.03)
                           .attr('numOctaves', 5)
-                          .attr('width', 120)
-                          .attr('height', 120)
-                          .attr('x', 40)
-                          .attr('y', 40);
+                          .attr('width', 100)
+                          .attr('height', 100)
+                          .attr('x', 50)
+                          .attr('y', 50);
 
 
 // composite the two effects
 filter
-  .composite(blurComponent, noiseComponent);
+  .composite(blurComponent, noiseComponent)
+      .attr('operator', 'xor');
 
 rightRect
     .attr('filter', filter);

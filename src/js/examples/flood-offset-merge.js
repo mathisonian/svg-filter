@@ -1,9 +1,23 @@
 var SvgFilter = require('svg-filter');
-var drawRect = require('../shortcuts/draw-rect');
+var d3 = require('d3');
 
-var leftRect = drawRect('.left.svg-example-4');
-var rightRect = drawRect('.right.svg-example-4');
+var makeText = function (selector) {
+  return d3.select(selector)
+            .append('svg')
+                .attr('width', 200)
+                .attr('height', 130)
+              .append('text')
+                  .text('text')
+                  .attr('x', 100)
+                  .attr('y', 110)
+                  .style('font-size', 72)
+                  .style('font-weight', 'bold')
+                  .style('font-family', 'Work Sans')
+                  .attr('text-anchor', 'middle');
+};
 
+var leftText = makeText('.left.svg-example-4');
+var rightText = makeText('.right.svg-example-4');
 
 var filter = new SvgFilter();
 var makeColoredFilter = function(color, dx, dy) {
@@ -28,13 +42,13 @@ var makeColoredFilter = function(color, dx, dy) {
               .attr('dy', dy);
 };
 
-var red = makeColoredFilter('#ff0000', -15, 0);
-var green = makeColoredFilter('#00ff00', -5, 10);
-var blue = makeColoredFilter('#0000ff', 10, -15);
-var yellow = makeColoredFilter('#ffff00', 5, 20);
+var red = makeColoredFilter('#ff0000', 0, -12);
+var green = makeColoredFilter('#00ff00', 0, -6);
+var yellow = makeColoredFilter('#ffff00', 0, 0);
+var blue = makeColoredFilter('#0000ff', 0, 6);
 
 filter
-  .merge(red, green, blue, yellow);
+  .merge(red, green, yellow, blue);
 
-rightRect
+rightText
     .attr('filter', filter);
