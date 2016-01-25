@@ -87,3 +87,7 @@ require('./examples/flood-offset-merge');
 
 ///// Example 5
 require('./examples/convolution');
+
+
+///// Example 6
+require('./examples/shadow');

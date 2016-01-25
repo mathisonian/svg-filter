@@ -241,4 +241,60 @@ filter
 
 
 rightImage.attr('filter', filter);
+</code></pre></div></div></div></div><div class="row section-header"><div class="column-12 centered"><h2>Drop Shadow</h2></div></div><div class="row"><div class="column-8 push-2"><div class="row"><div class="column-4 centered"><h4>Without Filter</h4><div class="left svg-example-6"></div></div><div class="column-4 centered"><h4>With Filter</h4><div class="right svg-example-6"></div></div></div><div class="row"><div class="column-12"><p><small><em>Example adapted from <a href="https://docs.webplatform.org/wiki/svg/tutorials/smarter_svg_filters">https://docs.webplatform.org/wiki/svg/tutorials/smarter_svg_filters</a>.</em></small></p><pre><code>
+var d3 = require('d3');
+var SvgFilter = require('svg-filter');
+
+var imW = 900 / 8;
+var imH = 900 / 8;
+
+var drawTiger = function (selector) {
+  var margin = 20;
+  return d3.select(selector)
+            .append('svg')
+                .attr('width', imW + margin)
+                .attr('height', imH + margin)
+              .append('image')
+                  .attr('width', imW)
+                  .attr('height', imH)
+                  .attr('x', margin / 2)
+                  .attr('y', margin / 2)
+                  .attr('xlink:href', 'https://upload.wikimedia.org/wikipedia/commons/f/fd/Ghostscript_Tiger.svg');
+}
+
+var leftImage = drawTiger('.left.svg-example-6');
+var rightImage = drawTiger('.right.svg-example-6')
+
+var filter = new SvgFilter();
+
+
+
+// Take the alpha channel of the original image,
+// blur it, then offset it slightly
+var blur = filter
+            .append('blur')
+                .in('SourceAlpha')
+                .attr('stdDeviation', 2)
+            // send to output of the blur
+            // to the input of the offset
+            .to('offset')
+                .attr('dx', 4)
+                .attr('dy', 6);
+
+// Create a swatch of gray color
+var flood = filter
+              .append('flood')
+                  .attr('color', '#777');
+
+
+// Combine the blurred offset with the color we want. This
+// is the 'drop shadow'
+var composite = filter.composite(blur, flood).attr('operator', 'in');
+
+// Combine the drop shadow with the
+// original image
+filter.merge(composite, 'SourceGraphic');
+
+
+rightImage.attr('filter', filter);
 </code></pre></div></div></div></div></div></div></div><script src="./js/app.js"></script></body>
