@@ -18,13 +18,13 @@ var drawRect = function (selector) {
 };
 
 
-// both triangles are drawn to the screen
+// both rectangles are drawn to the screen
 var leftRect = drawRect('.left.svg-example-1')
 var rightRect = drawRect('.right.svg-example-1');
 
 //
 // Now we will create a filter and add
-// it to one of the triangles.
+// it to one of the rectangles.
 //
 
 // this instantiates a new filter object.
@@ -40,5 +40,5 @@ filter
       .attr('stdDeviation', 5);
 
 
-// attach the filter to the triangle on the righr
+// attach the filter to the rectangle on the right
 rightRect.attr('filter', filter);
