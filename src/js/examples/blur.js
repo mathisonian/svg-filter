@@ -32,7 +32,7 @@ var filter = new SvgFilter();
 
 
 // A filter won't do anything until you
-// add and effect to it. In this case I add the
+// add an effect to it. In this case I add the
 // `blur` effect and set its standard deviation
 // parameter to 5
 filter
