@@ -4,6 +4,8 @@ Tool for working with svg filters
 See http://mathisonian.github.io/svg-filter for examples
 
 
+![random filters](./img/tri.gif)
+
 ## example
 
 ```js
