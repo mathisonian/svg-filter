@@ -1,0 +1,6 @@
+{
+  "feFlood": {
+    "opacity": "flood-opacity",
+    "color": "flood-color"
+  }
+}
