@@ -65,7 +65,7 @@ penrose.on('click', function() {
 });
 
 penrose.attr('filter', filter);
-d3.select('#penrose').transition().delay(500).style('opacity', 1);
+d3.select('#penrose').transition().delay(100).style('opacity', 1);
 
 //// Example 1
 require('./examples/blur');
