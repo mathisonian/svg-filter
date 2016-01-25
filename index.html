@@ -1,134 +1,244 @@
-<!DOCTYPE html><html lang="en"><head><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta http-equiv="X-UA-Compatible" content="IE=10; IE=9; IE=8; IE=7; IE=EDGE"><meta charset="UTF-8"><link href="/images/favicon.ico" rel="shortcut icon" type="image/x-icon"><title>svg-filter</title><meta property="og:title" content="svg-filter"><link rel="stylesheet" href="./css/app.css"></head></html><body><div class="documentation-container section-header"><div class="row section-header"><div class="column-8 push-2 details-container"><div class="row section-header"><div class="column-12 centered"><h1 class="top-title">svg-filter</h1><h4><a href="https://github.com/mathisonian/svg-filter">View on Github</a></h4></div></div><div class="row section-header"><div class="column-12 centered section-header"><h2>Installation</h2></div></div><div class="row"><div class="column-8 push-2"><pre><code>$ npm install svg-filter
-</code></pre></div></div><div class="row section-header"><div class="column-12 centered"><h2>Introduction</h2></div></div><div class="row"><div class="column-8 push-2">       <p>This library makes it easy to work with SVG filters. The API is
-designed to look familiar to d3.js users.</p><p>The following examples are re-implementations or slight modifications
-of examples from  <a href="https://www.smashingmagazine.com/2015/05/why-the-svg-filter-is-awesome/">this article on smashing magazine by Dirk Weber</a>.</p><p>This library exposes all filter types available in the svg spec. 
-For more detailed documentation on that see <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/filter">https://developer.mozilla.org/en-US/docs/Web/SVG/Element/filter</a>.</p><p><em>For the duration of the article, assume the following 
-functions are available:</em></p><pre><code>var d3 = require('d3');
-var SvgFilter = require('svg-filter');
-var size = 200;
+<!DOCTYPE html><html lang="en"><head><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta http-equiv="X-UA-Compatible" content="IE=10; IE=9; IE=8; IE=7; IE=EDGE"><meta charset="UTF-8"><link href="/images/favicon.ico" rel="shortcut icon" type="image/x-icon"><title>svg-filter</title><meta property="og:title" content="svg-filter"><link rel="stylesheet" href="./css/app.css"></head></html><body><div class="documentation-container section-header"><div class="row section-header"><div class="column-8 push-2 details-container"><div class="row section-header"><div class="column-12 centered"><h1 class="top-title">svg-filter</h1><h4><a href="https://github.com/mathisonian/svg-filter">View on Github</a></h4></div></div><div class="row"><div class="column-12 centered"><div id="penrose"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg2880"
+   sodipodi:version="0.32"
+   inkscape:version="0.44"
+   width="280"
+   height="243"
+   version="1.0"
+   sodipodi:docbase="C:\Documents and Settings\Jonas\Skrivbord"
+   sodipodi:docname="Penrose_triangle.svg">
+  <metadata
+     id="metadata2885">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs2883" />
+  <sodipodi:namedview
+     inkscape:window-height="895"
+     inkscape:window-width="917"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     guidetolerance="10.0"
+     gridtolerance="10.0"
+     objecttolerance="10.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base"
+     inkscape:zoom="1.4142136"
+     inkscape:cx="147.83914"
+     inkscape:cy="81.707375"
+     inkscape:window-x="356"
+     inkscape:window-y="-5"
+     inkscape:current-layer="svg2880" />
 
-var makeRect = function (selector) {
+  <g>
+    <path
+       style="opacity:1;fill:#ffffdc;fill-opacity:1;stroke:black;stroke-width:1.0629921;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:1.1248;stroke-opacity:1"
+       d="M 55.0625,182.4375 L 80.6875,182.5625 L 151.21875,59.84375 L 252.21615,228.15076 L 264.76729,205.25818 L 151.5625,13.25 L 55.0625,182.4375 z "
+       id="path2909" />
+    <path
+       style="opacity:1;fill:#c9e1d4;fill-opacity:1;stroke:black;stroke-width:1.0629921;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:1.1248;stroke-opacity:1"
+       d="M 15.625,206.0625 L 27.5,228.4375 L 252.30454,228.28334 L 151.23246,59.859344 L 138.54873,81.934334 L 211.73429,205.92661 L 15.625,206.0625 z "
+       id="path2911" />
+    <path
+       style="opacity:1;fill:#e2d8e5;fill-opacity:1;stroke:black;stroke-width:1.0629921;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:1.1248;stroke-opacity:1"
+       d="M 124.05609,12.990601 L 15.638759,206.0253 L 211.76418,205.96833 L 197.88064,182.51185 L 54.948939,182.532 L 151.67357,13.253813 L 124.05609,12.990601 z "
+       id="path2899" />
+</g>
+</svg>
+</div><div class="row"><div class="column-8 push-2"><p>Try clicking on the triangle above. Each time
+you click a new filter is randomly generated and
+applied to the svg.</p></div></div></div></div><div class="row section-header"><div class="column-12 centered section-header"><h2>Installation</h2></div></div><div class="row"><div class="column-8 push-2"><pre><code>$ npm install svg-filter
+</code></pre></div></div><div class="row section-header"><div class="column-12 centered"><h2>Introduction</h2></div></div><div class="row"><div class="column-8 push-2">       <p>This library makes it easy to work with SVG filters. The API is
+designed to look familiar to d3.js users.</p><p>Several of the following examples are re-implementations or slight modifications
+of examples from  <a href="https://www.smashingmagazine.com/2015/05/why-the-svg-filter-is-awesome/">this article on smashing magazine by Dirk Weber</a>.</p><p>This library exposes all filter types available in the svg spec. 
+For more detailed documentation on that see <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/filter">https://developer.mozilla.org/en-US/docs/Web/SVG/Element/filter</a>.</p><p>Now with that out of the way, let's make our first filter:</p></div></div><div class="row section-header"><div class="column-12 centered"><h2>Blur</h2></div></div><div class="row"><div class="column-8 push-2"><div class="row"><div class="column-4 centered"><h4>Without Filter</h4><div class="left svg-example-1"></div></div><div class="column-4 centered"><h4>With Filter</h4><div class="right svg-example-1"></div></div></div><div class="row"><div class="column-12"><pre><code>var d3 = require('d3');
+var SvgFilter = require('svg-filter');
+
+// drawRect is just a function that uses d3
+// to draw a blue rectangle on the screen.
+var drawRect = function (selector) {
+  var size = 100;
   return d3.select(selector)
       .append('svg')
-          .attr('width', size)
-          .attr('height', size)
-      .append('rect')
+          .attr('width', size * 2)
+          .attr('height', size * 2)
+        .append('rect')
             .attr('width', size)
             .attr('height', size)
+            .attr('x', size / 2)
+            .attr('y', size / 2)
             .attr('fill', 'blue');
 };
-</code></pre></div></div><div class="row section-header"><div class="column-12 centered"><h2>Blur</h2></div></div><div class="row"><div class="column-8 push-2"><div class="row"><div class="column-4 centered"><h4>Without Filter</h4><div class="left svg-example-1"></div></div><div class="column-4 centered"><h4>With Filter</h4><div class="right svg-example-1"></div></div></div><div class="row"><div class="column-12"><pre><code>// draw two blue squares with d3.
-// the makeRect function is defined above.
-var leftRect = makeRect('.left.svg-example-1')
-var rightRect = makeRect('.right.svg-example-1');
 
-// Instantiate a new filter
+
+// both triangles are drawn to the screen
+var leftRect = drawRect('.left.svg-example-1')
+var rightRect = drawRect('.right.svg-example-1');
+
+//
+// Now we will create a filter and add
+// it to one of the triangles.
+//
+
+// this instantiates a new filter object.
 var filter = new SvgFilter();
 
-// Add a single blur element to the filter
-// and set a parameter on the blur.
+
+// A filter won't do anything until you
+// add and effect to it. In this case I add the
+// `blur` effect and set its standard deviation
+// parameter to 5
 filter
   .append('blur')
-      .attr('stdDeviation', 50);
-      
-// rightRect is just a d3.selection
-// of the rectangle. this adds
-// the filter to the rectangle on the
-// right
-rightRect
-    .attr('filter', filter);
-    </code></pre></div></div></div></div><div class="row section-header"><div class="column-12 centered"><h2>Noise</h2></div></div><div class="row"><div class="column-8 push-2"><div class="row"><div class="column-4 centered"><h4>Without Filter</h4><div class="left svg-example-2"></div></div><div class="column-4 centered"><h4>With Filter</h4><div class="right svg-example-2"></div></div></div><div class="row"><div class="column-12"><pre><code>leftRect = makeRect('.left.svg-example-2');
-rightRect = makeRect('.right.svg-example-2');
+      .attr('stdDeviation', 5);
+
+
+// attach the filter to the triangle on the righr
+rightRect.attr('filter', filter);
+</code></pre></div></div></div></div><div class="row"><div class="column-8 push-2">       <p>Not all filters operate on their input in the same way.
+For example, a filter can be used to generate turbulence
+independent of the svg element it is filtering:</p></div></div><div class="row section-header"><div class="column-12 centered"><h2>Noise</h2></div></div><div class="row"><div class="column-8 push-2"><div class="row"><div class="column-4 centered"><h4>Without Filter</h4><div class="left svg-example-2"></div></div><div class="column-4 centered"><h4>With Filter</h4><div class="right svg-example-2"></div></div></div><div class="row"><div class="column-12"><pre><code>var SvgFilter = require('svg-filter');
+
+// This is the same drawRect function that was
+// used in the blur example above.
+var drawRect = require('../shortcuts/draw-rect');
+
+leftRect = drawRect('.left.svg-example-2');
+rightRect = drawRect('.right.svg-example-2');
+
 
 filter = new SvgFilter();
 
 filter
   .append('turbulence')
-      .attr('type', 'fractalNoise')
-      .attr('baseFrequency', 0.1)
+      .attr('type', 'turbulence')
+      .attr('baseFrequency', 0.03)
       .attr('numOctaves', 5)
-      .attr('seed', 2);
-      
-rightRect
-    .attr('filter', filter);
-    </code></pre></div></div></div></div><div class="row section-header"><div class="column-12 centered"><h2>Image Fill</h2></div></div><div class="row"><div class="column-8 push-2"><div class="row"><div class="column-4 centered"><h4>Without Filter</h4><div class="left svg-example-3"></div></div><div class="column-4 centered"><h4>With Filter</h4><div class="right svg-example-3"></div></div></div><div class="row"><div class="column-12"><pre><code>leftRect = makeRect('.left.svg-example-3');
-rightRect = makeRect('.right.svg-example-3');
-
-
-// Create an SVG pattern to
-// feed into a 'tile' filter
-var patternSVG = d3.select(document.createElement('div'))
-                  .append("svg")
-                      .attr('width', 100)
-                      .attr('height', 200);
-                      
-var pattern = patternSVG
-  .append('defs')
-    .append('pattern')
-        .attr('id', 'pattern')
-        .attr('patternUnits', 'userSpaceOnUse')
-        .attr('width', 10)
-        .attr('height', 10);
-        
-pattern
-  .append('path')
-  .attr('d', 'M0,8.239V10h1.761L0,8.239z');
-  
-pattern
-  .append('path')
-  .attr('d', 'M5,0l5,5l0,0V3.238L6.762,0H5z');
-  
-pattern
-  .append('polygon')
-  .attr('points', '0,3.239 0,5 5,10 6.761,10 ');
-  
-pattern
-  .append('polygon')
-  .attr('points', '1.762,0 0,0 10,10 10,8.238 ');
-  
-filter = new SvgFilter();
-
-
-filter
-  // create the image filter component with the SVG as input
-  .append('image')
-      .attr('xlink:href', 'data:image/svg+xml;charset=utf-8,' + encodeURI(patternSVG.node().outerHTML) + )
-      .attr('x', 0)
-      .attr('y', 0)
       .attr('width', 100)
-      .attr('height', 200)
-  // send the image component output to a tile component
-  .append('tile')
-  // sent the tile to composite
-  .append('composite')
-      .attr('operator', 'xor')
-      .in2('SourceGraphic');
-      
-      
+      .attr('height', 100)
+      .attr('x', 50)
+      .attr('y', 50);
+
 rightRect.attr('filter', filter);
+</code></pre></div></div></div></div><div class="row"><div class="column-8 push-2">       <p>It is often useful to combine the output of 
+two filter effects. In the next example I show 
+how to combine the blur and noise effects by using 
+"composite":</p></div></div><div class="row section-header"><div class="column-12 centered"><h2>Compositing Effects</h2></div></div><div class="row"><div class="column-8 push-2"><div class="row"><div class="column-4 centered"><h4>Without Filter</h4><div class="left svg-example-3"></div></div><div class="column-4 centered"><h4>With Filter</h4><div class="right svg-example-3"></div></div></div><div class="row"><div class="column-12"><pre><code>var SvgFilter = require('svg-filter');
+var drawRect = require('../shortcuts/draw-rect');
 
+leftRect = drawRect('.left.svg-example-3');
+rightRect = drawRect('.right.svg-example-3');
 
-
-</code></pre></div></div></div></div><div class="row section-header"><div class="column-12 centered"><h2>Composite filter components</h2></div></div><div class="row"><div class="column-8 push-2"><div class="row"><div class="column-4 centered"><h4>Without Filter</h4><div class="left svg-example-4"></div></div><div class="column-4 centered"><h4>With Filter</h4><div class="right svg-example-4"></div></div></div><div class="row"><div class="column-12"><pre><code>leftRect = makeRect('.left.svg-example-4');
-rightRect = makeRect('.right.svg-example-4');
 
 filter = new SvgFilter();
 
 var blurComponent = filter
                       .append('blur')
-                          .attr('stdDeviation', 50);
-                          
+                          .attr('stdDeviation', 5);
+
 var noiseComponent = filter
                       .append('turbulence')
-                          .attr('type', 'fractalNoise')
-                          .attr('baseFrequency', 0.1)
+                          .attr('type', 'turbulence')
+                          .attr('baseFrequency', 0.03)
                           .attr('numOctaves', 5)
-                          .attr('seed', 2);
-                          
-// composite the two filter components
+                          .attr('width', 120)
+                          .attr('height', 120)
+                          .attr('x', 40)
+                          .attr('y', 40);
+
+
+// composite the two effects
 filter
-  .append('composite')
-      .in(blurComponent, noiseComponent);
-      
+  .composite(blurComponent, noiseComponent);
+
 rightRect
-    .attr('filter', filter);</code></pre></div></div></div></div></div></div></div><script src="./js/app.js"></script></body>
+    .attr('filter', filter);
+</code></pre></div></div></div></div><div class="row section-header"><div class="column-12 centered"><h2>Flood, Offset, & Merge</h2></div></div><div class="row"><div class="column-8 push-2"><div class="row"><div class="column-4 centered"><h4>Without Filter</h4><div class="left svg-example-4"></div></div><div class="column-4 centered"><h4>With Filter</h4><div class="right svg-example-4"></div></div></div><div class="row"><div class="column-12"><pre><code>var SvgFilter = require('svg-filter');
+var drawRect = require('../shortcuts/draw-rect');
+
+var leftRect = drawRect('.left.svg-example-4');
+var rightRect = drawRect('.right.svg-example-4');
+
+
+var filter = new SvgFilter();
+var makeColoredFilter = function(color, dx, dy) {
+  return filter
+          .append('flood')
+              .attr('color', color)
+              .attr('opacity', 0.5)
+          // the `to` command creates a
+          // new 'composite' effect and
+          // automatically sends the output
+          // of the flood effect to the input
+          // of composite.
+          .to('composite')
+              .attr('operator', 'in')
+              .in2('SourceAlpha') // shorthand for attr('in2', 'SourceAlpha')
+
+          // again, this automatically wires the
+          // output of composite to the input of a new
+          // 'offset' effect
+          .to('offset')
+              .attr('dx', dx)
+              .attr('dy', dy);
+};
+
+var red = makeColoredFilter('#ff0000', -15, 0);
+var green = makeColoredFilter('#00ff00', -5, 10);
+var blue = makeColoredFilter('#0000ff', 10, -15);
+var yellow = makeColoredFilter('#ffff00', 5, 20);
+
+filter
+  .merge(red, green, blue, yellow);
+
+rightRect
+    .attr('filter', filter);
+</code></pre></div></div></div></div><div class="row section-header"><div class="column-12 centered"><h2>Convolution Matrix</h2></div></div><div class="row"><div class="column-8 push-2"><div class="row"><div class="column-4 centered"><h4>Without Filter</h4><div class="left svg-example-5"></div></div><div class="column-4 centered"><h4>With Filter</h4><div class="right svg-example-5"></div></div></div><div class="row"><div class="column-12"><pre><code>var d3 = require('d3');
+var SvgFilter = require('svg-filter');
+
+var imW = 1456 / 8;
+var imH = 1955 / 8;
+
+var drawImage = function (selector) {
+  return d3.select(selector)
+            .append('svg')
+                .attr('width', imW)
+                .attr('height', imH)
+              .append('image')
+                  .attr('width', imW)
+                  .attr('height', imH)
+                  .attr('xlink:href', '/images/llama.jpg');
+}
+
+var leftImage = drawImage('.left.svg-example-5');
+var rightImage = drawImage('.right.svg-example-5')
+
+var filter = new SvgFilter();
+
+filter
+  .append('convolve')
+      .attr('kernelMatrix', [0, 1, 0, 1, -4, 1, 0, 1, 0])
+      .attr('preserveAlpha', true)
+      .attr('bias', 0);
+
+
+rightImage.attr('filter', filter);
+</code></pre></div></div></div></div></div></div></div><script src="./js/app.js"></script></body>

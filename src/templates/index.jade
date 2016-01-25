@@ -12,11 +12,25 @@ block content
             h4
               a(href="https://github.com/mathisonian/svg-filter")
                 | View on Github
-            //- br
+                
+        .row
+          .column-12.centered
+            #penrose
+              include ../images/penrose.svg
+            
+            .row
+              .column-8.push-2
+                p
+                  | Try clicking on the triangle above. Each time
+                  | you click a new filter is randomly generated and
+                  | applied to the svg.
             //- h6
-              | By 
-              a(href="https://github.com/mathisonian")
-                | @mathisonian
+              | (click me)
+              //- | By 
+              //- a(href="https://github.com/mathisonian")
+              //-   | @mathisonian
+                
+        
 
               
         .row.section-header
@@ -41,7 +55,7 @@ block content
               | This library makes it easy to work with SVG filters. The API is
               | designed to look familiar to d3.js users.
             p
-              | The following examples are re-implementations or slight modifications
+              | Several of the following examples are re-implementations or slight modifications
               | of examples from  
               a(href="https://www.smashingmagazine.com/2015/05/why-the-svg-filter-is-awesome/")
                 | this article on smashing magazine by Dirk Weber
@@ -52,28 +66,10 @@ block content
               a(href="https://developer.mozilla.org/en-US/docs/Web/SVG/Element/filter")
                 | https://developer.mozilla.org/en-US/docs/Web/SVG/Element/filter
               | .
-            p
-              em
-                | For the duration of the article, assume the following 
-                | functions are available:
               
+            p
+              | Now with that out of the way, let's make our first filter:
 
-            pre
-              code.
-                var d3 = require('d3');
-                var SvgFilter = require('svg-filter');
-                var size = 200;
-
-                var makeRect = function (selector) {
-                  return d3.select(selector)
-                      .append('svg')
-                          .attr('width', size)
-                          .attr('height', size)
-                        .append('rect')
-                            .attr('width', size)
-                            .attr('height', size)
-                            .attr('fill', 'blue');
-                };
 
         .row.section-header
           .column-12.centered
@@ -96,27 +92,15 @@ block content
             .row
               .column-12
                 pre
-                  code.
-                    // draw two blue squares with d3.
-                    // the makeRect function is defined above.
-                    var leftRect = makeRect('.left.svg-example-1')
-                    var rightRect = makeRect('.right.svg-example-1');
+                  code
+                    include ../js/examples/blur.js
 
-                    // Instantiate a new filter
-                    var filter = new SvgFilter();
-
-                    // Add a single blur element to the filter
-                    // and set a parameter on the blur.
-                    filter
-                      .append('blur')
-                          .attr('stdDeviation', 50);
-
-                    // rightRect is just a d3.selection
-                    // of the rectangle. this adds
-                    // the filter to the rectangle on the
-                    // right
-                    rightRect
-                        .attr('filter', filter);
+        .row
+          .column-8.push-2        
+            p
+              | Not all filters operate on their input in the same way.
+              | For example, a filter can be used to generate turbulence
+              | independent of the svg element it is filtering:
 
         .row.section-header
           .column-12.centered
@@ -138,28 +122,25 @@ block content
             .row
               .column-12
                 pre
-                  code.
-                    leftRect = makeRect('.left.svg-example-2');
-                    rightRect = makeRect('.right.svg-example-2');
-
-                    filter = new SvgFilter();
-
-                    filter
-                      .append('turbulence')
-                          .attr('type', 'fractalNoise')
-                          .attr('baseFrequency', 0.1)
-                          .attr('numOctaves', 5)
-                          .attr('seed', 2);
-                          
-                    rightRect
-                        .attr('filter', filter);
+                  code
+                    include ../js/examples/noise.js
+                    
+                    
+                    
+        .row
+          .column-8.push-2        
+            p
+              | It is often useful to combine the output of 
+              | two filter effects. In the next example I show 
+              | how to combine the blur and noise effects by using 
+              | "composite":
 
         .row.section-header
           .column-12.centered
             h2
-              | Image Fill
+              | Compositing Effects
               
-        
+      
         .row
           .column-8.push-2
             .row
@@ -174,71 +155,14 @@ block content
             .row
               .column-12
                 pre
-                  code.
-                    leftRect = makeRect('.left.svg-example-3');
-                    rightRect = makeRect('.right.svg-example-3');
-
-
-                    // Create an SVG pattern to
-                    // feed into a 'tile' filter
-                    var patternSVG = d3.select(document.createElement('div'))
-                                      .append("svg")
-                                          .attr('width', 100)
-                                          .attr('height', 200);
-
-                    var pattern = patternSVG
-                      .append('defs')
-                        .append('pattern')
-                            .attr('id', 'pattern')
-                            .attr('patternUnits', 'userSpaceOnUse')
-                            .attr('width', 10)
-                            .attr('height', 10);
-
-                    pattern
-                      .append('path')
-                      .attr('d', 'M0,8.239V10h1.761L0,8.239z');
-
-                    pattern
-                      .append('path')
-                      .attr('d', 'M5,0l5,5l0,0V3.238L6.762,0H5z');
-
-                    pattern
-                      .append('polygon')
-                      .attr('points', '0,3.239 0,5 5,10 6.761,10 ');
-
-                    pattern
-                      .append('polygon')
-                      .attr('points', '1.762,0 0,0 10,10 10,8.238 ');
-
-                    filter = new SvgFilter();
-
-                    
-                    filter
-                      // create the image filter component with the SVG as input
-                      .append('image')
-                          .attr('xlink:href', 'data:image/svg+xml;charset=utf-8,' + encodeURI(patternSVG.node().outerHTML) + )
-                          .attr('x', 0)
-                          .attr('y', 0)
-                          .attr('width', 100)
-                          .attr('height', 200)
-                      // send the image component output to a tile component
-                      .append('tile')
-                      // sent the tile to composite
-                      .append('composite')
-                          .attr('operator', 'xor')
-                          .in2('SourceGraphic');
-
-
-                    rightRect.attr('filter', filter);
-
-
+                  code
+                    include ../js/examples/composite.js
 
 
         .row.section-header
           .column-12.centered
             h2
-              | Composite filter components
-              
+              | Flood, Offset, & Merge
         
         .row
           .column-8.push-2
@@ -254,27 +178,28 @@ block content
             .row
               .column-12
                 pre
-                  code.
-                    leftRect = makeRect('.left.svg-example-4');
-                    rightRect = makeRect('.right.svg-example-4');
+                  code
+                      include ../js/examples/flood-offset-merge.js
 
-                    filter = new SvgFilter();
-                    
-                    var blurComponent = filter
-                                          .append('blur')
-                                              .attr('stdDeviation', 50);
-                                              
-                    var noiseComponent = filter
-                                          .append('turbulence')
-                                              .attr('type', 'fractalNoise')
-                                              .attr('baseFrequency', 0.1)
-                                              .attr('numOctaves', 5)
-                                              .attr('seed', 2);
-                    
-                    // composite the two filter components
-                    filter
-                      .append('composite')
-                          .in(blurComponent, noiseComponent);
 
-                    rightRect
-                        .attr('filter', filter);
+        .row.section-header
+          .column-12.centered
+            h2
+              | Convolution Matrix
+        
+        .row
+          .column-8.push-2
+            .row
+              .column-4.centered
+                h4
+                  | Without Filter
+                .left.svg-example-5
+              .column-4.centered
+                  h4
+                    | With Filter
+                  .right.svg-example-5
+            .row
+              .column-12
+                pre
+                  code
+                    include ../js/examples/convolution.js
