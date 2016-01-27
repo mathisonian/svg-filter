@@ -58,14 +58,16 @@ The following are shorthand for the full element names. The links go to mozillas
 
 ## API usage
 
-### 1. Create a new filter
+### Basic 
+
+#### 1. Create a new filter
 
 ```js
 var SVGFilter = require('svg-filter');
 var filter = new SVGFilter();
 ```
 
-### 2. Add effects to the filter
+#### 2. Add effects to the filter
 
 ```js
 
@@ -74,7 +76,7 @@ filter
   .append('blur');
 ```
 
-### 3. Attach the filter to a d3 selection
+#### 3. Attach the filter to a d3 selection
 
 ```js
 
@@ -82,7 +84,7 @@ d3selection.attr('filter', filter)'
 ```
 
 
-## More advanced API usage
+### advanced
 
 ### Chain two effects together
 
