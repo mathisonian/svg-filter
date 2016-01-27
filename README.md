@@ -75,7 +75,9 @@ var filter = new SVGFilter();
 filter
   .append('blur')
       // sets a parameter on the
-      // blur effect
+      // blur effect. see links
+      // above for more info on
+      // available attributes
       .attr('stdDeviation', 5);
 ```
 
