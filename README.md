@@ -85,7 +85,7 @@ filter
 
 ```js
 
-d3selection.attr('filter', filter)'
+d3selection.attr('filter', filter);
 ```
 
 
