@@ -73,7 +73,10 @@ var filter = new SVGFilter();
 
 // appends a blur effect
 filter
-  .append('blur');
+  .append('blur')
+      // sets a parameter on the
+      // blur effect
+      .attr('stdDeviation', 5);
 ```
 
 #### 3. Attach the filter to a d3 selection
