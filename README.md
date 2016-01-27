@@ -84,7 +84,7 @@ d3selection.attr('filter', filter)'
 ```
 
 
-### advanced
+### Advanced
 
 ### Chain two effects together
 
