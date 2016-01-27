@@ -86,7 +86,7 @@ d3selection.attr('filter', filter)'
 
 ### Advanced
 
-### Chain two effects together
+#### Chain two effects together
 
 ```js
 var filter = new SVGFilter();
@@ -102,7 +102,7 @@ filter
 
 ```
 
-### Merge separate effects
+#### Merge separate effects
 
 
 ```js
